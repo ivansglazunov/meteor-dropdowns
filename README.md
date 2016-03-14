@@ -276,6 +276,9 @@ Dropdowns.removeAll()
 # Manually set a position of a dropdown. Both x and y are optional.
 Dropdowns.setPosition('name', {x: Number, y: Number})
 
+# Automatically calculate position based on trigger template for current dropdown.
+Dropdowns.usePosition('name', dropdownTriggerTemplate)
+
 # Hide all dropdowns except for `name` (can also be an array of names).
 Dropdowns.hideAllBut('name')
 
