@@ -81,6 +81,7 @@ The `dropdown` helper takes additional arguments for positioning and custom clas
 - `classes` - Additional class names for the dropdown. None as default.
 - `direction` - One of `n`, `s`, `e` or `w`. Where to position the dropdown around the element. Defaults to `s`.
 - `persistent` - Defaults to `false`. Set to `true` if you want the dropdown *not* to hide when clicking outside it (on `document`).
+- `on` - Defaults to `click`. Set to `hover` for respond to the pointing of the mouse.
 
 ```html
 {{#dropdownTrigger name="testDropdown3"}}
