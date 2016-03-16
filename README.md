@@ -71,7 +71,7 @@ You can also use a separate template for the dropdown and dropdown trigger conte
 
 Note that `dropdownTrigger` needs the template name in the `template` argument.
 
-### Additional arguments
+### Dropdown arguments
 
 The `dropdown` helper takes additional arguments for positioning and custom classes. The names are:
 
@@ -81,8 +81,6 @@ The `dropdown` helper takes additional arguments for positioning and custom clas
 - `classes` - Additional class names for the dropdown. None as default.
 - `direction` - One of `n`, `s`, `e` or `w`. Where to position the dropdown around the element. Defaults to `s`.
 - `persistent` - Defaults to `false`. Set to `true` if you want the dropdown *not* to hide when clicking outside it (on `document`).
-- `on` - Defaults to `click`. Set to `hover` for respond to the pointing of the mouse. Set `none` for disable trigger logic. You can use `usePosition` for write your own reactions logic.
-- `timeout` - Defaults is `0`. Set a number to have time to move the mouse from the `dropdownTrigger` on the `dropdown`.
 
 ```html
 {{#dropdownTrigger name="testDropdown3"}}
@@ -90,6 +88,22 @@ The `dropdown` helper takes additional arguments for positioning and custom clas
 {{/dropdownTrigger}}
 
 {{#dropdown name="testDropdown3" align="right" top="20" left="10" direction="n" classes="custom-class another-one"}}
+  <p>Custom dropdown.</p>
+{{/dropdown}}
+```
+
+### Trigger arguments
+
+The `dropdownTrigger` helper takes additional arguments for change trigger event. The names are:
+- `on` - Defaults to `click`. Set to `hover` for respond to the pointing of the mouse. Set `none` for disable trigger logic. You can use `usePosition` for write your own reactions logic.
+- `timeout` - Defaults is `0`. Set a number to have time to move the mouse from the `dropdownTrigger` on the `dropdown`.
+- 
+```html
+{{#dropdownTrigger name="testDropdown4" on="hover" timeout=500}}
+  <button>Hover with timeout</button>
+{{/dropdownTrigger}}
+
+{{#dropdown name="testDropdown4" top="-10" direction="n"}}
   <p>Custom dropdown.</p>
 {{/dropdown}}
 ```
@@ -107,7 +121,7 @@ The `dropdownTrigger` template helper doesn't produce any extra HTML around your
 
 <button class="dropdown__trigger">A trigger</button>
 
-{{#dropdown name="testDropdown4" align="center" top="20" left="10" classes="custom-class"}}
+{{#dropdown name="testDropdown5" align="center" top="20" left="10" classes="custom-class"}}
   <!-- Content [..] -->
 {{/dropdown}}
 
@@ -117,7 +131,7 @@ The `dropdownTrigger` template helper doesn't produce any extra HTML around your
   class="dropdown test-dropdown4 custom-class"
   id="test-dropdown4"
   style="position: absolute; left: XXpx; top: XXpx;"
-  data-dropdown-key="testDropdown4"
+  data-dropdown-key="testDropdown5"
   data-dropdown-align="center"
   data-dropdown-left="10"
   data-dropdown-top="20">
@@ -139,8 +153,8 @@ Please note that the `name` template argument will be present as `id` and `class
 In order to detect active, opened dropdowns, the global `dropdownIsActive` helper can be used:
 
 ```
-{{#dropdownTrigger name="testDropdown5"}}
-  <button class="{{#if dropdownIsActive 'testDropdown5'}}dropdown--open{{/if}}">A trigger</button>
+{{#dropdownTrigger name="testDropdown6"}}
+  <button class="{{#if dropdownIsActive 'testDropdown6'}}dropdown--open{{/if}}">A trigger</button>
 {{/dropdownTrigger}}
 ```
 
@@ -157,11 +171,11 @@ Template.testTemplate.helpers(
 
 ```html
 <template name="testTemplate">
-  {{#dropdownTrigger name="testDropdown6"}}
+  {{#dropdownTrigger name="testDropdown7"}}
     <button>Dropdown with data</button>
   {{/dropdownTrigger}}
 
-  {{#dropdown name="testDropdown6" classes="dropdown--menu" align="left"}}
+  {{#dropdown name="testDropdown7" classes="dropdown--menu" align="left"}}
 
     <ul class="dropdown__menu">
     {{#each items}}

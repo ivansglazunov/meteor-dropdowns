@@ -23,7 +23,8 @@
 
     <ol class="toc">
       <li><a href="#basics">Basics</a></li>
-      <li><a href="#arguments">Additional Arguments</a></li>
+      <li><a href="#dropdown-arguments">Dropdown Arguments</a></li>
+      <li><a href="#trigger-arguments">Trigger Arguments</a></li>
       <li><a href="#markup-classes">Markup &amp; Classes</a></li>
       <li><a href="#helpers">Helpers</a></li>
       <li><a href="#data">Data Contexts</a></li>
@@ -107,9 +108,9 @@
 
     <p>Note that <code>dropdownTrigger</code> needs the template name in the <code>template</code> argument.</p>
 
-    <h2 id="arguments">Additional arguments</h2>
+    <h2 id="dropdown-arguments">Dropdown arguments</h2>
 
-    <p>The <code>dropdown</code> helper takes additional arguments for positioning and custom classes. The names are:</p>
+    <p>The <code>dropdown</code> helper takes additional arguments for positioning and custom classes.<br>The names are:</p>
 
     <dl>
       <dt><code>align</code></dt>
@@ -127,16 +128,8 @@
       <dt><code>classes</code></dt>
       <dd>Additional class names for the dropdown. None as default.</dd>
     </dl>
-
-    <p>The <code>dropdownTrigger</code> helper takes additional arguments for change trigger event. The names are:</p>
-
-    <dl>
-      <dt><code>on</code></dt>
-      <dd> Defaults to <code>click</code>. Set to <code>hover</code> for respond to the pointing of the mouse. Set <code>none</code> for disable trigger logic. You can use <code>usePosition</code> for write your own reactions logic.</dd>
-
-      <dt><code>timeout</code></dt>
-      <dd>Defaults is <code>0</code>. Set a number to have time to move the mouse from the <code>dropdownTrigger</code> on the <code>dropdown</code>.</dd>
-    </dl>
+    
+    <br>
 
     <div class="test-area dropdown-container">
       {{#dropdownTrigger name="testDropdownRight" }}
@@ -208,6 +201,26 @@
       {{/dropdown}}
     </div>
 
+    <pre><code>&#123;&#123;#dropdownTrigger name="testDropdown3"&#125;&#125;
+  &lt;button&gt;Custom dropdown on click&lt;/button&gt;
+&#123;&#123;/dropdownTrigger&#125;&#125;
+
+&#123;&#123;#dropdown name="testDropdown3" align="right" top="20" left="10" direction="n" classes="custom-class another-one"&#125;&#125;
+  &lt;p&gt;Custom dropdown.&lt;/p&gt;
+&#123;&#123;/dropdown&#125;&#125;</code></pre>
+
+    <h2 id="trigger-arguments">Trigger arguments</h2>
+
+    <p>The <code>dropdownTrigger</code> helper takes additional arguments for change trigger event.<br>The names are:</p>
+
+    <dl>
+      <dt><code>on</code></dt>
+      <dd> Defaults to <code>click</code>. Set to <code>hover</code> for respond to the pointing of the mouse. Set <code>none</code> for disable trigger logic. You can use <code>usePosition</code> for write your own reactions logic.</dd>
+
+      <dt><code>timeout</code></dt>
+      <dd>Defaults is <code>0</code>. Set a number to have time to move the mouse from the <code>dropdownTrigger</code> on the <code>dropdown</code>.</dd>
+    </dl>
+
     <div class="test-area dropdown-container">
       {{#dropdownTrigger name="testDropdownHover" on="hover"}}
         <button>Hover</button>
@@ -228,14 +241,13 @@
       {{/dropdown}}
     </div>
 
-    <pre><code>&#123;&#123;#dropdownTrigger name="testDropdown3"&#125;&#125;
-  &lt;button&gt;Custom dropdown&lt;/button&gt;
+    <pre><code>&#123;&#123;#dropdownTrigger name="testDropdown4" on="hover" timeout=500&#125;&#125;
+  &lt;button&gt;Hover with timeout&lt;/button&gt;
 &#123;&#123;/dropdownTrigger&#125;&#125;
 
-&#123;&#123;#dropdown name="testDropdown3" align="right" top="20" left="10" direction="n" classes="custom-class another-one"&#125;&#125;
+&#123;&#123;#dropdown name="testDropdown4" top="-10" direction="n"&#125;&#125;
   &lt;p&gt;Custom dropdown.&lt;/p&gt;
 &#123;&#123;/dropdown&#125;&#125;</code></pre>
-
 
     <h2 id="markup-classes">Markup &amp; Classes</h2>
 
@@ -251,7 +263,7 @@
 
 &lt;button class=&quot;dropdown__trigger&quot;&gt;A trigger&lt;/button&gt;
 
-&#123;&#123;#dropdown name="testDropdown4" align="center" top="20" left="10" classes="custom-class"&#125;&#125;
+&#123;&#123;#dropdown name="testDropdown5" align="center" top="20" left="10" classes="custom-class"&#125;&#125;
   &lt;!-- Content [..] --&gt;
 &#123;&#123;/dropdown&#125;&#125;
 
@@ -261,7 +273,7 @@
   class=&quot;dropdown test-dropdown4 custom-class&quot;
   id=&quot;test-dropdown4&quot;
   style=&quot;position: absolute; left: XXpx; top: XXpx;&quot;
-  data-dropdown-key=&quot;testDropdown4&quot;
+  data-dropdown-key=&quot;testDropdown5&quot;
   data-dropdown-align=&quot;center&quot;
   data-dropdown-left=&quot;10&quot;
   data-dropdown-top=&quot;20&quot;&gt;
@@ -288,17 +300,17 @@
     </p>
 
     <div class="test-area dropdown-container">
-      {{#dropdownTrigger name="testDropdown5" }}
-        <button class="{{#if dropdownIsActive 'testDropdown5'}}dropdown--open{{/if}}">A trigger</button>
+      {{#dropdownTrigger name="testDropdown6" }}
+        <button class="{{#if dropdownIsActive 'testDropdown6'}}dropdown--open{{/if}}">A trigger</button>
       {{/dropdownTrigger}}
 
-      {{#dropdown name="testDropdown5" top="10"}}
+      {{#dropdown name="testDropdown6" top="10"}}
         <p>A dropdown.</p>
       {{/dropdown}}
     </div>
 
-<pre><code class="html">&#123;&#123;#dropdownTrigger name="testDropdown5"&#125;&#125;
-  &lt;button class="&#123;&#123;#if dropdownIsActive 'testDropdown5'&#125;&#125;dropdown--open&#123;&#123;/if&#125;&#125;"&gt;A trigger&lt;/button&gt;
+<pre><code class="html">&#123;&#123;#dropdownTrigger name="testDropdown6"&#125;&#125;
+  &lt;button class="&#123;&#123;#if dropdownIsActive 'testDropdown6'&#125;&#125;dropdown--open&#123;&#123;/if&#125;&#125;"&gt;A trigger&lt;/button&gt;
 &#123;&#123;/dropdownTrigger&#125;&#125;
 </code></pre>
 
@@ -309,10 +321,10 @@
     </p>
 
     <div class="test-area dropdown-container">
-      {{ > testTemplate "testDropdown6" }}
+      {{ > testTemplate "testDropdown7" }}
     </div>
 
-<pre><code class="html">&#123;&#123; &gt; testTemplate &quot;testDropdown6&quot; &#125;&#125;</code></pre>
+<pre><code class="html">&#123;&#123; &gt; testTemplate &quot;testDropdown7&quot; &#125;&#125;</code></pre>
 
 {{#markdown}}
 ```coffeescript
