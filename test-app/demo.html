@@ -198,6 +198,26 @@
       {{/dropdown}}
     </div>
 
+    <div class="test-area dropdown-container">
+      {{#dropdownTrigger name="testDropdownHover" on="hover"}}
+        <button>Hover</button>
+      {{/dropdownTrigger}}
+
+      {{#dropdown name="testDropdownHover" direction="n" top="-10"}}
+        <p>Trigger responds to hover event <code>on="hover"</code>.</p>
+      {{/dropdown}}
+    </div>
+
+    <div class="test-area dropdown-container">
+      {{#dropdownTrigger name="testDropdownHoverTimeout" on="hover" timeout=500}}
+        <button>Hover with timeout</button>
+      {{/dropdownTrigger}}
+
+      {{#dropdown name="testDropdownHoverTimeout" direction="n" top="-10"}}
+        <p>You can move your mouse to the dropdown with <code>on="hover" timeout=500</code>.</p>
+      {{/dropdown}}
+    </div>
+
     <pre><code>&#123;&#123;#dropdownTrigger name="testDropdown3"&#125;&#125;
   &lt;button&gt;Custom dropdown&lt;/button&gt;
 &#123;&#123;/dropdownTrigger&#125;&#125;

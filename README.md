@@ -82,6 +82,7 @@ The `dropdown` helper takes additional arguments for positioning and custom clas
 - `direction` - One of `n`, `s`, `e` or `w`. Where to position the dropdown around the element. Defaults to `s`.
 - `persistent` - Defaults to `false`. Set to `true` if you want the dropdown *not* to hide when clicking outside it (on `document`).
 - `on` - Defaults to `click`. Set to `hover` for respond to the pointing of the mouse. Set `none` for disable trigger logic. You can use `usePosition` for write your own reactions logic.
+- `timeout` - Defaults is `0`. Set a number to have time to move the mouse from the `dropdownTrigger` on the `dropdown`.
 
 ```html
 {{#dropdownTrigger name="testDropdown3"}}
