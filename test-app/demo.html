@@ -128,6 +128,18 @@
       <dd>Additional class names for the dropdown. None as default.</dd>
     </dl>
 
+    <p>The <code>dropdownTrigger</code> helper takes additional arguments for change trigger event. The names are:</p>
+- `on` - Defaults to `click`. Set to `hover` for respond to the pointing of the mouse. Set `none` for disable trigger logic. You can use `usePosition` for write your own reactions logic.
+- `timeout` - Defaults is `0`. Set a number to have time to move the mouse from the `dropdownTrigger` on the `dropdown`.
+
+    <dl>
+      <dt><code>on</code></dt>
+      <dd> Defaults to <code>click</code>. Set to <code>hover</code> for respond to the pointing of the mouse. Set <code>none</code> for disable trigger logic. You can use <code>usePosition</code> for write your own reactions logic.</dd>
+
+      <dt><code>timeout</code></dt>
+      <dd>Defaults is <code>0</code>. Set a number to have time to move the mouse from the <code>dropdownTrigger</code> on the <code>dropdown</code>.</dd>
+    </dl>
+
     <div class="test-area dropdown-container">
       {{#dropdownTrigger name="testDropdownRight" }}
         <button>Right aligned</button>
